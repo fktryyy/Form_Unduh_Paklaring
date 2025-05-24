@@ -9,10 +9,10 @@ class LoginController extends Controller
 {
     public function index()
     {
-        return view('login');
+        return view('login_page');
     }
 
-    public function login(Request $request)
+    public function loginform(Request $request)
     {
         $request->validate([
             'barcode' => 'required',

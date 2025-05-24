@@ -10,7 +10,7 @@
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
 
     <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md">
-        <h2 class="text-2xl font-semibold text-center text-gray-800 mb-6">🔐 Login Untuk Download Paklaring</h2>
+        <h2 class="text-2xl font-semibold text-center text-gray-800 mb-6">🔐 Login Untuk Download Surat Keterangan Kerja Dan Keterangan Kepesertaan BPJS</h2>
 
         @if(session('error'))
             <div class="bg-red-100 text-red-700 px-4 py-2 rounded mb-4">
@@ -21,7 +21,7 @@
         <form action="{{ route('login.submit') }}" method="POST" class="space-y-5">
             @csrf
             <div>
-                <label for="barcode" class="block text-gray-700 font-medium mb-2">Masukkan NIP</label>
+                <label for="barcode" class="block text-gray-700 font-medium mb-2">Masukkan NIP Anda</label>
                 <input type="text" name="barcode" id="barcode" required
                        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
             </div>
