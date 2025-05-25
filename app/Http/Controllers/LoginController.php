@@ -18,7 +18,7 @@ class LoginController extends Controller
             'barcode' => 'required',
         ]);
 
-        $response = Http::post('https://wiki.ssmindonesia.com/login', [
+        $response = Http::post('http://localhost:3000/login', [
             'barcode' => $request->barcode
         ]);
 
