@@ -13,21 +13,26 @@ class LoginController extends Controller
     }
 
     public function loginform(Request $request)
-    {
-        $request->validate([
-            'barcode' => 'required',
-        ]);
-
-        $response = Http::post('https://wiki.ssmindonesia.com/login', [
-            'barcode' => $request->barcode
-        ]);
-
-        if ($response->successful() && $response->json()) {
-            $data = $response->json();
-            return view('result', compact('data'));
-        } else {
-            return back()->with('error', 'Data tidak ditemukan.');
-        }
+{
+    if ($request->isMethod('get')) {
+        return redirect('/')->with('error', 'Akses tidak valid. Silakan login melalui form.');
     }
+
+    $request->validate([
+        'barcode' => 'required',
+    ]);
+
+    $response = Http::post('https://wiki.ssmindonesia.com/login', [
+        'barcode' => $request->barcode
+    ]);
+
+    if ($response->successful() && $response->json()) {
+        $data = $response->json();
+        return view('result', compact('data'));
+    } else {
+        return back()->with('error', 'Data tidak ditemukan.');
+    }
+}
+
 }
 
