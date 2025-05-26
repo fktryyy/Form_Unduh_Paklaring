@@ -5,9 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\FileDownloadController;
 
 Route::get('/', [LoginController::class, 'index']);
-
-Route::match(['get', 'post'], '/submit', [LoginController::class, 'loginform'])->name('login.submit');
-
+Route::post('/submit', [LoginController::class, 'loginform'])->name('login.submit');
 Route::get('/download/{encodedUrl}', [FileDownloadController::class, 'download'])
-    ->where('encodedUrl', '.*')
+    ->where('encodedUrl', '.*') // supaya URL bisa panjang
     ->name('download.file');

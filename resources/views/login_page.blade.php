@@ -18,7 +18,7 @@
             </div>
         @endif
 
-        <form action="{{ route('login.submit') }}" method="POST" class="space-y-5">
+        <form action="/submit" method="POST" class="space-y-5">
             @csrf
             <div>
                 <label for="barcode" class="block text-gray-700 font-medium mb-2">Masukkan NIP Anda</label>
